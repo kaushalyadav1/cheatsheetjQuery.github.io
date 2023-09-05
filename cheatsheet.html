@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cheatsheet.css">
+    <link rel="stylesheet" href="prism.css">
+    <script src="prism.js"></script>
+    <title>jQuery Cheatsheet by Kaushal</title>
+    <style>
+
+            @keyframes fade-out {
+                0% { opacity: 0; }
+                50% { opacity: 0.8; }
+                100% { opacity: 1; }
+            }
+
+            ol{
+                animation: fade-out 2s;
+            }
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <span class="logo"><img src="copy-icon-9.png" alt=""></span>
+        <div class="content center">
+            This jQuery Cheatsheet is For You!
+        </div>
+    </nav>
+
+    <div class="container">
+
+    <ol>
+
+        <li><b>Include jQuery : </b> Adding jQuery to HTML
+            <pre class="language-html"><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"&gt;&lt;/script&gt;</code></pre>
+        </li> <br>
+
+        <li><b>jQuery : </b> jQuery is a lightweight, "write less, do more", JavaScript library. <br><br>
+            The purpose of jQuery is to make it much easier to use JavaScript on your website. <br>  <br>          
+            jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps them into methods that you can call with a single line of code. <br>  <br>          
+            jQuery also simplifies a lot of the complicated things from JavaScript, like AJAX calls and DOM manipulation. <br>  <br>          
+            The jQuery library contains the following features:  <br>          
+            <ul>
+                <li>
+                    HTML/DOM manipulation <br>
+                </li>
+                <li>
+                    CSS manipulation <br>
+                </li>
+                <li>
+                    HTML event methods <br>
+                </li>
+                <li>
+                    Effects and animations <br>
+                </li>
+                <li>
+                    AJAX <br>
+                </li>
+                <li>
+                    Utilities <br> <br>
+                </li>
+            </ul>
+            <b>Tip : </b> In addition, jQuery has plugins for almost any task out there. <br> <br>
+            <b>Example</b>
+            <pre class="language-html"><code>&lt;head&gt;
+    &lt;script&gt;
+        $(document).ready(function(){
+        $("button").click(function(){
+            $("p").hide();
+            });
+        });
+    &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h2&gt;Welcome to JQuery World&lt;/h2&gt;
+    &lt;p&gt;This is Kaushal Jacker&lt;/p&gt;
+    &lt;p&gt;From SpecBits.&lt;/p&gt;
+
+    &lt;button&gt;Hide Details&lt;/button&gt;
+&lt;/body&gt;</code></pre>
+
+        <b>Note :- </b>The purpose of jQuery is to make it much easier to use JavaScript on your website.
+        </li> <br>
+
+        <li><b>jQuery Syntax : </b>The jQuery syntax is tailor-made for selecting HTML elements and performing some action on the element(s). <br><br>
+            <b>Basic syntax is: $(selector).action()</b>    <br>         
+            A $ sign to define/access jQuery <br>
+            A (selector) to "query (or find)" HTML elements <br>
+            A jQuery action() to be performed on the element(s) <br> <br>
+            
+            <b>Examples:</b> <br>             
+            $(this).hide() - hides the current element.   <br>          
+            $("p").hide() - hides all (p) elements.      <br>       
+            $(".test").hide() - hides all elements with class="test".    <br>         
+            $("#test").hide() - hides the element with id="test". <br>
+
+        </li> <br>
+
+        <li><b>jQuery Selectors : </b>The jQuejQuery selectors are one of the most important parts of the jQuery library.<br><br>
+            jQuery selectors allow you to select and manipulate HTML element(s). <br><br>
+            jQuery selectors are used to "find" (or select) HTML elements based on their name, id, classes, types, attributes, values of attributes and much more. It's based on the existing CSS Selectors, and in addition, it has some own custom selectors. <br><br>
+            All selectors in jQuery start with the dollar sign and parentheses: $(). <br> <br>
+
+            <b>The element Selector : </b> The jQuery element selector selects elements based on the element name. <br><br>
+            You can select all (p) elements on a page like this:
+            <pre class="language-js"><code>$("p")</code></pre>
+            <b>Example</b>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+    $("button").click(function(){
+        $("p").hide();
+        });
+    });
+&lt;/script&gt;
+
+    &lt;h2&gt;Welcome to JQuery World&lt;/h2&gt;
+    &lt;p&gt;This is Kaushal Jacker&lt;/p&gt;
+    &lt;p&gt;From SpecBits.&lt;/p&gt;
+
+    &lt;button&gt;Hide Details&lt;/button&gt;</code></pre> <br>
+
+            <b>The #id Selector : </b> The jQuery #id selector uses the id attribute of an HTML tag to find the specific element. <br><br>
+            An id should be unique within a page, so you should use the #id selector when you want to find a single, unique element. <br><br>            
+            To find an element with a specific id, write a hash character, followed by the id of the HTML element: <br>
+            <pre class="language-js"><code>$("#test")</code></pre>  <br>
+            <b>Example</b>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+    $("button").click(function(){
+        $("#test").hide();
+        });
+    });
+&lt;/script&gt;
+
+    &lt;h2&gt;Welcome to JQuery World&lt;/h2&gt;
+    &lt;p&gt;This is Kaushal Jacker&lt;/p&gt;
+    &lt;p id="test"&gt;From SpecBits.&lt;/p&gt;
+
+    &lt;button&gt;Hide Details&lt;/button&gt;</code></pre> <br>
+
+            <b>The .class Selector : </b> The jQuery .class selector finds elements with a specific class. <br><br>
+            To find elements with a specific class, write a period character, followed by the name of the class: <br>
+            <pre class="language-js"><code>$(".test")</code></pre>  <br>
+            <b>Example</b>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+    $("button").click(function(){
+        $(".test").hide();
+        });
+    });
+&lt;/script&gt;
+
+    &lt;h2 class="test"&gt;Welcome to JQuery World&lt;/h2&gt;
+    &lt;p class="test"&gt;This is Kaushal Jacker&lt;/p&gt;
+    &lt;p&gt;From SpecBits.&lt;/p&gt;
+
+    &lt;button&gt;Hide Details&lt;/button&gt;</code></pre>
+
+        </li> <br>
+
+        <li><b>jQuery Event Methods : </b>jQuery is tailor-made to respond to events in an HTML page. <br> <br>
+            All the different visitors' actions that a web page can respond to are called events. <br><br>
+            An event represents the precise moment when something happens. <br><br>
+            Examples: <br>
+            <ul>
+                <li>
+                    moving a mouse over an element
+                </li>
+                <li>
+                    selecting a radio button
+                </li>
+                <li>
+                    clicking on an element
+                </li>
+            </ul> <br>
+            The term <b>"fires/fired"</b> is often used with events. <br><br>
+
+            <b>jQuery Syntax For Event Methods : </b> In jQuery, most DOM events have an equivalent jQuery method. <br><br>
+            To assign a click event to all paragraphs on a page, you can do this:
+            <pre class="language-js"><code>$("p").click();</code></pre> <br>
+
+            <b>Commonly Used jQuery Event Methods</b> <br><br>
+            <b>$(document).ready() </b>This is to prevent any jQuery code from running before the document is finished loading (is ready). <br><br>
+            It is good practice to wait for the document to be fully loaded and ready before working with it. <br><br>
+            This also allows you to have your JavaScript code before the body of your document, in the head section. <br>
+            <pre class="language-js"><code>$(document).ready(function(){
+
+// jQuery methods go here...
+
+});</code></pre>
+
+            <b>Note :- </b>Here are some examples of actions that can fail if methods are run before the document is fully loaded: <br>
+            <ul>
+                <li>
+                    Trying to hide an element that is not created yet
+                </li>
+                <li>
+                    Trying to get the size of an image that is not loaded yet
+                </li>
+            </ul> <br>
+            <b>Tip :- </b> The jQuery team has also created an even shorter method for the document ready event: <br> 
+            <pre class="language-js"><code>$(function(){
+
+    // jQuery methods go here...
+
+});</code></pre> <br>
+
+            <b>click() </b> The click() method attaches an event handler function to an HTML element. <br><br>
+            The function is executed when the user clicks on the HTML element. <br>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("p").click(function(){
+        $(this).hide();
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p&gt;If you click on me, I will disappear.&lt;/p&gt;
+    &lt;p&gt;Click me away!&lt;/p&gt;
+    &lt;p&gt;Click me too!&lt;/p&gt;</code></pre> <br>
+
+            <b>dblclick() </b> The dblclick() method attaches an event handler function to an HTML element. <br><br>
+            The function is executed when the user double-clicks on the HTML element: <br>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("p").dblclick(function(){
+        $(this).hide();
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p&gt;If you double-click on me, I will disappear.&lt;/p&gt;
+    &lt;p&gt;Click me away!&lt;/p&gt;
+    &lt;p&gt;Click me too!&lt;/p&gt;</code></pre> <br>
+
+            <b>mouseenter() </b> The mouseenter() method attaches an event handler function to an HTML element. <br><br>
+            The function is executed when the mouse pointer enters the HTML element: <br>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("#p1").mouseenter(function(){
+        alert("You entered p1!");
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p id="p1"&gt;Enter this paragraph.&lt;/p&gt;</code></pre> <br>
+
+            <b>mouseleave() </b> The mouseleave() method attaches an event handler function to an HTML element. <br><br>
+            The function is executed when the mouse pointer leaves the HTML element: <br>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("#p1").mouseleave(function(){
+        alert("Bye! You now leave p1!");
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p id="p1"&gt;This is a paragraph.&lt;/p&gt;</code></pre> <br>
+
+            <b>mousedown() </b> The mousedown() method attaches an event handler function to an HTML element. <br><br>
+            The function is executed, when the left, middle or right mouse button is pressed down, while the mouse is over the HTML element: <br>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("#p1").mousedown(function(){
+        alert("Mouse down over p1!");
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p id="p1"&gt;This is a paragraph.&lt;/p&gt;</code></pre> <br>
+
+            <b>mouseup() </b>The mouseup() method attaches an event handler function to an HTML element. <br><br>
+            The function is executed, when the left, middle or right mouse button is released, while the mouse is over the HTML element: <br>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("#p1").mouseup(function(){
+        alert("Mouse up over p1!");
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p id="p1"&gt;This is a paragraph.&lt;/p&gt;</code></pre> <br>
+
+            <b>hover() </b>The hover() method takes two functions and is a combination of the mouseenter() and mouseleave() methods. <br><br>
+            The first function is executed when the mouse enters the HTML element, and the second function is executed when the mouse leaves the HTML element: <br>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("#p1").hover(function(){
+        alert("You entered p1!");
+        },
+        function(){
+        alert("Bye! You now leave p1!");
+        }); 
+    });
+&lt;/script&gt;
+
+    &lt;p id="p1"&gt;This is a paragraph.&lt;/p&gt;</code></pre> <br>
+
+            <b>focus() </b>The focus() method attaches an event handler function to an HTML form field. <br><br>
+            The function is executed when the form field gets focus: <br>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("input").focus(function(){
+        $(this).css("background-color", "yellow");
+        });
+        $("input").blur(function(){
+        $(this).css("background-color", "green");
+        });
+    });
+&lt;/script&gt;
+
+    Name: &lt;input type="text" name="fullname"&gt;&lt;br&gt;
+    Email: &lt;input type="text" name="email"&gt;</code></pre> <br>
+
+            <b>blur() </b>The blur() method attaches an event handler function to an HTML form field. <br><br>
+            The function is executed when the form field loses focus: <br>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("input").focus(function(){
+        $(this).css("background-color", "yellow");
+        });
+        $("input").blur(function(){
+        $(this).css("background-color", "green");
+        });
+    });
+&lt;/script&gt;
+
+    Name: &lt;input type="text" name="fullname"&gt;&lt;br&gt;
+    Email: &lt;input type="text" name="email"&gt;</code></pre> <br>
+
+            <b>The on() Method </b>The on() method attaches one or more event handlers for the selected elements. <br><br>
+            Attach a click event to a (p) element: <br>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("p").on("click", function(){
+        $(this).hide();
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p&gt;If you click on me, I will disappear.&lt;/p&gt;
+    &lt;p&gt;Click me away!&lt;/p&gt;
+    &lt;p&gt;Click me too!&lt;/p&gt;</code></pre> <br>
+
+            <b>Attach multiple event handlers to a (p) element:</b>
+            <pre class="language-html"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("p").on({
+        mouseenter: function(){
+            $(this).css("background-color", "lightgray");
+        },  
+        mouseleave: function(){
+            $(this).css("background-color", "lightblue");
+        }, 
+        click: function(){
+            $(this).css("background-color", "yellow");
+        }  
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p&gt;Click or move the mouse pointer over this paragraph.&lt;/p&gt;</code></pre> <br>
+
+        </li> <br>
+
+        <li><b>jQuery Effects : </b> <br><br>
+            <b> jQuery hide() and show() </b> With jQuery, you can hide and show HTML elements with the hide() and show() methods: <br>
+            <pre class="language-js"><code> &lt;script&gt;
+    $(document).ready(function(){
+        $("#hide").click(function(){
+        $("p").hide();
+        });
+        $("#show").click(function(){
+        $("p").show();
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p&gt;If you click on the "Hide" button, I will disappear.&lt;/p&gt;
+        
+    &lt;button id="hide"&gt;Hide&lt;/button&gt;
+    &lt;button id="show"&gt;Show&lt;/button&gt;</code></pre> <br>
+    
+            <b> Syntax: </b> <br>
+            <pre class="language-js"><code>$(selector).hide(speed,callback);
+
+$(selector).show(speed,callback);</code></pre>
+                <b>Note :- </b> The optional speed parameter specifies the speed of the hiding/showing, and can take the following values: "slow", "fast", or milliseconds. <br><br>
+                The optional callback parameter is a function to be executed after the hide() or show() method completes  <br> <br>
+
+            <b> jQuery toggle() </b> You can also toggle between hiding and showing an element with the toggle() method. <br><br>
+            Shown elements are hidden and hidden elements are shown: <br>
+            <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("button").click(function(){
+        $("p").toggle();
+        });
+    });
+&lt;/script&gt;
+
+    &lt;button&gt;Click Me!&lt;/button&gt;            
+    &lt;p&gt;This is Kaushal.&lt;/p&gt;
+    &lt;p&gt;from SpecBits.&lt;/p&gt;</code></pre> <br>
+
+                <b>Syntax : </b> <br>
+            <pre class="language-js"><code>$(selector).toggle(speed,callback);</code></pre>
+                <b>Note :- </b> The optional speed parameter can take the following values: "slow", "fast", or milliseconds. <br><br>
+                The optional callback parameter is a function to be executed after toggle() completes.  <br> <br>
+
+                <b>jQuery Fading Methods </b> With jQuery you can fade an element in and out of visibility. <br> <br>
+                <ul>
+                    <li> <b>fadeIn() </b> The jQuery fadeIn() method is used to fade in a hidden element. <br> <br>
+                        <b>Syntax : </b>
+                        <pre class="language-js"><code>$(selector).fadeIn(speed,callback);</code></pre>
+                        <b>Note :- </b>The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds. <br><br>
+                        The optional callback parameter is a function to be executed after the fading completes. <br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("button").click(function(){
+        $("#div1").fadeIn();
+        $("#div2").fadeIn("slow");
+        $("#div3").fadeIn(3000);
+        });
+    });
+&lt;/script&gt;
+
+    &lt;button&gt;Click to fade in boxes&lt;/button&gt;&lt;br&gt;&lt;br&gt;
+        
+    &lt;div id="div1" style="width:80px;height:80px;display:none;background-color:red;"&gt;&lt;/div&gt;&lt;br&gt;
+    &lt;div id="div2" style="width:80px;height:80px;display:none;background-color:green;"&gt;&lt;/div&gt;&lt;br&gt;
+    &lt;div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"&gt;&lt;/div&gt;</code></pre>
+                    </li> <br>
+
+                    <li> <b>fadeOut() </b> The jQuery fadeOut() method is used to fade out a visible element. <br> <br>
+                        <b>Syntax : </b>
+                        <pre class="language-js"><code>$(selector).fadeOut(speed,callback);</code></pre>
+                        <b>Note :- </b>The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds. <br><br>
+                        The optional callback parameter is a function to be executed after the fading completes. <br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("button").click(function(){
+        $("#div1").fadeOut();
+        $("#div2").fadeOut("slow");
+        $("#div3").fadeOut(3000);
+        });
+    });
+&lt;/script&gt;
+
+    &lt;button&gt;Click to fade out boxes&lt;/button&gt;&lt;br&gt;&lt;br&gt;
+        
+    &lt;div id="div1" style="width:80px;height:80px;background-color:red;"&gt;&lt;/div&gt;&lt;br&gt;
+    &lt;div id="div2" style="width:80px;height:80px;background-color:green;"&gt;&lt;/div&gt;&lt;br&gt;
+    &lt;div id="div3" style="width:80px;height:80px;background-color:blue;"&gt;&lt;/div&gt;</code></pre>
+                    </li> <br>
+
+                    <li> <b>fadeToggle() </b> The jQuery fadeToggle() method toggles between the fadeIn() and fadeOut() methods. <br><br>
+                        If the elements are faded out, fadeToggle() will fade them in. <br><br>                      
+                        If the elements are faded in, fadeToggle() will fade them out. <br> <br>
+                        <b>Syntax : </b>
+                        <pre class="language-js"><code>$(selector).fadeToggle(speed,callback);</code></pre>
+                        <b>Note :- </b>The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds. <br><br>
+                        The optional callback parameter is a function to be executed after the fading completes. <br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("button").click(function(){
+        $("#div1").fadeToggle();
+        $("#div2").fadeToggle("slow");
+        $("#div3").fadeToggle(3000);
+        });
+    });
+&lt;/script&gt;
+
+    &lt;button&gt;Click to fade in/out boxes&lt;/button&gt;&lt;br&gt;&lt;br&gt;
+        
+    &lt;div id="div1" style="width:80px;height:80px;background-color:red;"&gt;&lt;/div&gt;&lt;br&gt;
+    &lt;div id="div2" style="width:80px;height:80px;background-color:green;"&gt;&lt;/div&gt;&lt;br&gt;
+    &lt;div id="div3" style="width:80px;height:80px;background-color:blue;"&gt;&lt;/div&gt;</code></pre>
+                    </li> <br>
+
+                    <li> <b>fadeTo() </b> The jQuery fadeTo() method allows fading to a given opacity (value between 0 and 1). <br> <br>
+                        <b>Syntax : </b>
+                        <pre class="language-js"><code>$(selector).fadeTo(speed,opacity,callback);</code></pre>
+                        <b>Note :- </b>The required speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds. <br><br>
+                        The required opacity parameter in the fadeTo() method specifies fading to a given opacity (value between 0 and 1). <br><br>                       
+                        The optional callback parameter is a function to be executed after the function completes. <br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("button").click(function(){
+        $("#div1").fadeTo("slow", 0.15);
+        $("#div2").fadeTo("slow", 0.4);
+        $("#div3").fadeTo("slow", 0.7);
+        });
+    });
+&lt;/script&gt;
+
+    &lt;button&gt;Click to fade boxes&lt;/button&gt;&lt;br&gt;&lt;br&gt;
+        
+    &lt;div id="div1" style="width:80px;height:80px;background-color:red;"&gt;&lt;/div&gt;&lt;br&gt;
+    &lt;div id="div2" style="width:80px;height:80px;background-color:green;"&gt;&lt;/div&gt;&lt;br&gt;
+    &lt;div id="div3" style="width:80px;height:80px;background-color:blue;"&gt;&lt;/div&gt;</code></pre>
+                    </li> <br>
+                </ul>
+
+                <b>jQuery Sliding Methods </b> With jQuery you can create a sliding effect on elements. <br> <br>
+                <ul>
+                    <li> <b>slideDown() </b> The jQuery slideDown() method is used to slide down an element. <br> <br>
+                        <b>Syntax : </b>
+                        <pre class="language-js"><code>$(selector).slideDown(speed,callback);</code></pre>
+                        <b>Note :- </b>The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds. <br><br>
+                        The optional callback parameter is a function to be executed after the sliding completes. <br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt; 
+    $(document).ready(function(){
+        $("#flip").click(function(){
+        $("#panel").slideDown("slow");
+        });
+    });
+&lt;/script&gt;
+                      
+&lt;style&gt; 
+    #panel, #flip {
+    padding: 5px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+    }
+    
+    #panel {
+    padding: 50px;
+    display: none;
+    }
+&lt;/style&gt;
+
+    &lt;div id="flip"&gt;Click to slide down panel&lt;/div&gt;
+    &lt;div id="panel"&gt;This is Kaushal from SpecBits&lt;/div&gt;</code></pre>
+
+                    </li> <br>
+
+                    <li> <b>slideUp() </b> The jQuery slideUp() method is used to slide up an element. <br> <br>
+                        <b>Syntax : </b>
+                        <pre class="language-js"><code>$(selector).slideUp(speed,callback);</code></pre>
+                        <b>Note :- </b>The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds. <br><br>
+                        The optional callback parameter is a function to be executed after the sliding completes. <br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt; 
+    $(document).ready(function(){
+        $("#flip").click(function(){
+        $("#panel").slideUp("slow");
+        });
+    });
+&lt;/script&gt;
+
+&lt;style&gt; 
+    #panel, #flip {
+    padding: 5px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+    }
+    
+    #panel {
+    padding: 50px;
+    }
+&lt;/style&gt;
+
+    &lt;div id="flip"&gt;Click to slide up panel&lt;/div&gt;
+    &lt;div id="panel"&gt;This is Kaushal from SpecBits&lt;/div&gt;</code></pre>
+                    </li> <br>
+
+                    <li> <b>slideToggle() </b> he jQuery slideToggle() method toggles between the slideDown() and slideUp() methods. <br><br>
+                        If the elements have been slid down, slideToggle() will slide them up. <br><br>                       
+                        If the elements have been slid up, slideToggle() will slide them down. <br> <br>
+                        <b>Syntax : </b>
+                        <pre class="language-js"><code>$(selector).slideToggle(speed,callback);</code></pre>
+                        <b>Note :- </b>The optional speed parameter can take the following values: "slow", "fast", milliseconds. <br><br>
+                        The optional callback parameter is a function to be executed after the sliding completes. <br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt; 
+    $(document).ready(function(){
+        $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+        });
+    });
+&lt;/script&gt;
+
+&lt;style&gt; 
+    #panel, #flip {
+        padding: 5px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+    }
+
+    #panel {
+        padding: 50px;
+        display: none;
+    }
+&lt;/style&gt;
+
+    &lt;div id="flip"&gt;Click to slide the panel down or up&lt;/div&gt;
+    &lt;div id="panel"&gt;This is Kaushal from SpecBits&lt;/div&gt;</code></pre>
+                    </li> <br>
+                </ul>
+
+                <b>Animation </b> The jQuery animate() method is used to create custom animations. <br> <br>
+                <ul>
+                    <li> <b>jQuery Animations - The animate() Method </b> The jQuery animate() method is used to create custom animations. <br> <br>
+                        <b>Syntax : </b>
+                        <pre class="language-js"><code>$(selector).animate({params},speed,callback);</code></pre>
+                        <b>Note :- </b>The required params parameter defines the CSS properties to be animated. <br><br>
+                        The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds. <br><br>                       
+                        The optional callback parameter is a function to be executed after the animation completes. <br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt; 
+    $(document).ready(function(){
+        $("button").click(function(){
+        $("div").animate({left: '250px'});
+        });
+    });
+&lt;/script&gt;
+
+    &lt;button&gt;Start Animation&lt;/button&gt;
+
+    &lt;p&gt;By default, all HTML elements have a static position, and cannot be moved.
+    To manipulate the position, remember to first set the CSS position property of 
+    the element to relative, fixed, or absolute!&lt;/p&gt;
+
+    &lt;div style="background:#98bf21;height:100px;width:100px;position:absolute;"&gt;&lt;/div&gt;</code></pre>
+
+                    </li> <br>
+
+                    <li> <b>jQuery animate() - Manipulate Multiple Properties </b><br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt; 
+    $(document).ready(function(){
+        $("button").click(function(){
+        $("div").animate({
+            left: '250px',
+            opacity: '0.5',
+            height: '150px',
+            width: '150px'
+        });
+        });
+    });
+&lt;/script&gt;
+
+    &lt;button&gt;Start Animation&lt;/button&gt;
+
+    &lt;div style="background:#98bf21;height:100px;width:100px;position:absolute;"&gt;&lt;/div&gt;</code></pre>
+
+                    </li> <br>
+
+                    <li> <b>jQuery animate() - Using Relative Values </b> It is also possible to define relative values (the value is then relative to the element's current value). This is done by putting += or -= in front of the value: <br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt; 
+    $(document).ready(function(){
+        $("button").click(function(){
+        $("div").animate({
+            left: '250px',
+            height: '+=150px',
+            width: '+=150px'
+        });
+        });
+    });
+&lt;/script&gt;
+
+    &lt;button&gt;Start Animation&lt;/button&gt;
+      
+    &lt;div style="background:#98bf21;height:100px;width:100px;position:absolute;"&gt;&lt;/div&gt;</code></pre>
+
+                    </li> <br>
+
+                    <li> <b>jQuery animate() - Using Pre-defined Values </b> You can even specify a property's animation value as "show", "hide", or "toggle": <br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt; 
+    $(document).ready(function(){
+    $("button").click(function(){
+        $("div").animate({
+        height: 'toggle'
+        });
+    });
+    });
+&lt;/script&gt;
+
+    &lt;p&gt;Click the button multiple times to toggle the animation.&lt;/p&gt;
+      
+    &lt;button&gt;Start Animation&lt;/button&gt;
+
+    &lt;div style="background:#98bf21;height:100px;width:100px;position:absolute;"&gt;&lt;/div&gt;</code></pre>
+
+                    </li> <br>
+
+                    <li> <b>jQuery animate() - Uses Queue Functionality </b> By default, jQuery comes with queue functionality for animations. <br><br>
+                        This means that if you write multiple animate() calls after each other, jQuery creates an "internal" queue with these method calls. Then it runs the animate calls ONE by ONE. <br><br>                        
+                        So, if you want to perform different animations after each other, we take advantage of the queue functionality: <br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt; 
+    $(document).ready(function(){
+        $("button").click(function(){
+        var div = $("div");
+        div.animate({height: '300px', opacity: '0.4'}, "slow");
+        div.animate({width: '300px', opacity: '0.8'}, "slow");
+        div.animate({height: '100px', opacity: '0.4'}, "slow");
+        div.animate({width: '100px', opacity: '0.8'}, "slow");
+        });
+    });
+&lt;/script&gt;
+
+    &lt;button&gt;Start Animation&lt;/button&gt;
+      
+    &lt;div style="background:#98bf21;height:100px;width:100px;position:absolute;"&gt;&lt;/div&gt;</code></pre>
+
+                    </li> <br>
+                </ul>
+
+                <b>Stop Animations </b> The jQuery stop() method is used to stop animations or effects before it is finished. <br> <br>
+                <ul>
+                    <li> <b>stop() </b> The jQuery stop() method is used to stop an animation or effect before it is finished. <br><br>
+                        The stop() method works for all jQuery effect functions, including sliding, fading and custom animations. <br> <br>
+                        <b>Syntax : </b>
+                        <pre class="language-js"><code>$(selector).stop(stopAll,goToEnd);</code></pre>
+                        <b>Note :- </b>The optional stopAll parameter specifies whether also the animation queue should be cleared or not. Default is false, which means that only the active animation will be stopped, allowing any queued animations to be performed afterwards. <br><br>
+                        The optional goToEnd parameter specifies whether or not to complete the current animation immediately. Default is false. <br><br>                        
+                        So, by default, the stop() method kills the current animation being performed on the selected element.<br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt; 
+    $(document).ready(function(){
+        $("#flip").click(function(){
+        $("#panel").slideDown(5000);
+        });
+        $("#stop").click(function(){
+        $("#panel").stop();
+        });
+    });
+&lt;/script&gt;
+
+&lt;style&gt; 
+    #panel, #flip {
+        padding: 5px;
+        font-size: 18px;
+        text-align: center;
+        background-color: #555;
+        color: white;
+        border: solid 1px #781717;
+        border-radius: 3px;
+    }
+
+    #panel {
+        padding: 50px;
+        display: none;
+    }
+&lt;/style&gt;
+
+    &lt;button id="stop"&gt;Stop sliding&lt;/button&gt;
+      
+    &lt;div id="flip"&gt;Click to slide down panel&lt;/div&gt;
+    &lt;div id="panel"&gt;Hello world!&lt;/div&gt;</code></pre>
+
+                    </li> <br>
+
+                </ul>
+
+                <b>jQuery Callback Functions </b> A callback function is executed after the current effect is 100% finished. <br> <br>
+                <ul>
+                    <li> <b>jQuery Callback Functions </b> JavaScript statements are executed line by line. However, with effects, the next line of code can be run even though the effect is not finished. This can create errors. <br><br>
+                        To prevent this, you can create a callback function. <br><br>                      
+                        A callback function is executed after the current effect is finished. <br><br>
+                        <b>Syntax : </b>
+                        <pre class="language-js"><code>$(selector).hide(speed,callback);</code></pre>
+                        <b>Note :- </b>The optional stopAll parameter specifies whether also the animation queue should be cleared or not. Default is false, which means that only the active animation will be stopped, allowing any queued animations to be performed afterwards. <br><br>
+                        The optional goToEnd parameter specifies whether or not to complete the current animation immediately. Default is false. <br><br>                        
+                        So, by default, the stop() method kills the current animation being performed on the selected element.<br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("button").click(function(){
+        $("p").hide("slow", function(){
+            alert("The paragraph is now hidden");
+        });
+        });
+    });
+&lt;/script&gt;
+
+    &lt;button&gt;Hide&lt;/button&gt;
+      
+    &lt;p&gt;This is a paragraph with little content.&lt;/p&gt;</code></pre> <br>
+
+                        <b>Example without Callback</b>
+                        <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+    $("button").click(function(){
+        $("p").hide(1000);
+        alert("The paragraph is now hidden");
+    });
+    });
+&lt;/script&gt;
+
+    &lt;button&gt;Hide&lt;/button&gt;
+      
+    &lt;p&gt;This is a paragraph with little content.&lt;/p&gt;</code></pre>
+
+                    </li> <br>
+                </ul>
+
+                <b>jQuery - Chaining </b> With jQuery, you can chain together actions/methods. <br><br>
+                Chaining allows us to run multiple jQuery methods (on the same element) within a single statement. <br> <br>
+                <ul>
+                    <li> <b>jQuery Method Chaining </b> Until now we have been writing jQuery statements one at a time (one after the other). <br><br>
+                        However, there is a technique called chaining, that allows us to run multiple jQuery commands, one after the other, on the same element(s). <br><br>                        
+                        <b>Tip : </b> This way, browsers do not have to find the same element(s) more than once. <br><br>                        
+                        To chain an action, you simply append the action to the previous action.<br><br>
+                        <b>Example : </b>
+                        <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("button").click(function(){
+        $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p id="p1"&gt;jQuery is fun!!&lt;/p&gt;
+      
+    &lt;button&gt;Click me&lt;/button&gt;</code></pre>
+
+                        <b>Note :- </b>We could also have added more method calls if needed. <br><br>
+
+                        <b>Tip : </b> When chaining, the line of code could become quite long. However, jQuery is not very strict on the syntax; you can format it like you want, including line breaks and indentations.<br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("button").click(function(){
+        $("#p1").css("color", "red")
+            .slideUp(2000)
+            .slideDown(2000);
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p id="p1"&gt;jQuery is fun!!&lt;/p&gt;
+      
+    &lt;button&gt;Click me&lt;/button&gt;</code></pre>
+
+                    </li> <br>
+                </ul>
+
+                <li> <b>jQuery HTML</b> <br><br>
+                    <ul>
+                        <li> <b>jQuery - Get Content and Attributes </b> jQuery contains powerful methods for changing and manipulating HTML elements and attributes.<br> <br>
+                
+                        <b>jQuery DOM Manipulation </b> One very important part of jQuery is the possibility to manipulate the DOM. <br><br>
+                        jQuery comes with a bunch of DOM related methods that make it easy to access and manipulate elements and attributes.<br><br>
+                        <b>DOM = Document Object Model</b> <br>
+                        The DOM defines a standard for accessing HTML and XML documents: <br> <br>
+                        "The W3C Document Object Model (DOM) is a platform and language-neutral interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document." <br><br>
+                        <b>Get Content - text(), html(), and val() </b> <br><br> 
+                        Three simple, but useful, jQuery methods for DOM manipulation are: <br>
+
+                        <b>text()</b> - Sets or returns the text content of selected elements <br>
+                        <b>html()</b> - Sets or returns the content of selected elements (including HTML markup) <br>
+                        <b>val()</b> - Sets or returns the value of form fields <br> <br>
+                        How to get content with the jQuery text() and html() methods: <br> <br>
+                        <b>Example : </b>
+                        <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+        alert("Text: " + $("#test").text());
+        });
+        $("#btn2").click(function(){
+        alert("HTML: " + $("#test").html());
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p id="p1"&gt;jQuery is fun!!&lt;/p&gt;
+      
+    &lt;button&gt;Click me&lt;/button&gt;</code></pre> <br>
+
+                        The value of an input field with the jQuery val() method: <br> <br>
+                        <b>Example</b>
+                        <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("button").click(function(){
+        alert("Value: " + $("#test").val());
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p&gt;Name: &lt;input type="text" id="test" value="Mickey Mouse"&gt;&lt;/p&gt;
+      
+    &lt;button&gt;Show Value&lt;/button&gt;</code></pre> <br>
+
+
+                <b>Get Attributes - attr() </b> The jQuery attr() method is used to get attribute values. <br>
+                <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("button").click(function(){
+        alert($("#w3s").attr("href"));
+        });
+    });
+&lt;/script&gt;
+                
+    &lt;p&gt;&lt;a href="https://specbits.com" id="w3s"&gt;specbits.com&lt;/a&gt;&lt;/p&gt;
+      
+    &lt;button&gt;Show href Value&lt;/button&gt;</code></pre>
+
+                        </li> <br>
+
+                        <li><b>jQuery - Set Content and Attributes </b> jQuery contains powerful methods for changing and manipulating HTML elements and attributes.<br> <br>
+                        
+                        How to set content with the jQuery text(), html(), and val() methods: <br> <br>
+                                <b>Example : </b>
+                                <pre class="language-js"><code>&lt;script&gt;
+            $(document).ready(function(){
+                $("#btn1").click(function(){
+                $("#test1").text("Hello world!");
+                });
+                $("#btn2").click(function(){
+                $("#test2").html("&lt;b&gt;Hello world!&lt;/b&gt;");
+                });
+                $("#btn3").click(function(){
+                $("#test3").val("Dolly Duck");
+                });
+            });
+        &lt;/script&gt;
+
+            &lt;p id="test1"&gt;This is a paragraph.&lt;/p&gt;
+            &lt;p id="test2"&gt;This is another paragraph.&lt;/p&gt;
+
+            &lt;p&gt;Input field: &lt;input type="text" id="test3" value="Mickey Mouse"&gt;&lt;/p&gt;
+
+            &lt;button id="btn1"&gt;Set Text&lt;/button&gt;
+            &lt;button id="btn2"&gt;Set HTML&lt;/button&gt;
+            &lt;button id="btn3"&gt;Set Value&lt;/button&gt;</code></pre> <br>
+
+                                <b>A Callback Function for text(), html(), and val()</b> <br> All of the three jQuery methods above: text(), html(), and val(), also come with a callback function. The callback function has two parameters: the index of the current element in the list of elements selected and the original (old) value. You then return the string you wish to use as the new value from the function. <br><br>
+                                <b>Example</b>
+                                <pre class="language-js"><code>&lt;script&gt;
+            $(document).ready(function(){
+                $("#btn1").click(function(){
+                $("#test1").text(function(i, origText){
+                    return "Old text: " + origText + " New text: Hello world! (index: " + i + ")"; 
+                });
+                });
+
+                $("#btn2").click(function(){
+                $("#test2").html(function(i, origText){
+                    return "Old html: " + origText + " New html: Hello &lt;b&gt;world!&lt;/b&gt; (index: " + i + ")"; 
+                });
+                });
+            });
+        &lt;/script&gt;
+
+            &lt;p id="test1"&gt;This is a &lt;b&gt;bold&lt;/b&gt; paragraph.&lt;/p&gt;
+            &lt;p id="test2"&gt;This is another &lt;b&gt;bold&lt;/b&gt; paragraph.&lt;/p&gt;
+
+            &lt;button id="btn1"&gt;Show Old/New Text&lt;/button&gt;
+            &lt;button id="btn2"&gt;Show Old/New HTML&lt;/button&gt;</code></pre> <br>
+
+
+                        <b>Set Attributes - attr() </b> The jQuery attr() method is also used to set/change attribute values. <br>
+                        <pre class="language-js"><code>&lt;script&gt;
+            $(document).ready(function(){
+                $("button").click(function(){
+                $("#w3s").attr("href", "https://www.w3schools.com/jquery/");
+                });
+            });
+        &lt;/script&gt;
+                        
+            &lt;p&gt;&lt;a href="https://www.w3schools.com" id="w3s"&gt;W3Schools.com&lt;/a&gt;&lt;/p&gt;
+            
+            &lt;button&gt;Change href Value&lt;/button&gt;
+
+            &lt;p&gt;Mouse over the link (or click on it) to see that the value of the href attribute has changed.&lt;/p&gt;</code></pre> 
+            <b>Note :- </b> The attr() method also allows you to set multiple attributes at the same time. <br>     
+                        </li> <br>
+
+                        <li><b>jQuery - Add Elements </b> With jQuery, it is easy to add new elements/content.<br> <br>
+                        
+                            Add New HTML Content <br> 
+                            <b>append()</b> - Inserts content at the end of the selected elements <br>
+                            <b>prepend()</b> - Inserts content at the beginning of the selected elements <br>
+                            <b>after()</b> - Inserts content after the selected elements <br>
+                            <b>before()</b> - Inserts content before the selected elements<br> <br>
+                                <b>jQuery append() Method : </b> The jQuery append() method inserts content AT THE END of the selected HTML elements. <br>
+                                <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+        $("p").append(" &lt;b&gt;from SpecBits&lt;/b&gt;.");
+        });
+
+        $("#btn2").click(function(){
+        $("ol").append("&lt;li&gt; &lt;b&gt;List item ...&lt;/b&gt; &lt;/li&gt;");
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p&gt;This is Kaushal&lt;/p&gt;
+    &lt;p&gt;This is another Developer&lt;/p&gt;
+
+    &lt;ol&gt;
+        &lt;li&gt;List item 1&lt;/li&gt;
+        &lt;li&gt;List item 2&lt;/li&gt;
+        &lt;li&gt;List item 3&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;button id="btn1"&gt;Append text&lt;/button&gt;
+    &lt;button id="btn2"&gt;Append list items&lt;/button&gt;</code></pre> <br>
+
+                                <b>jQuery prepend() Method </b>The jQuery prepend() method inserts content AT THE BEGINNING of the selected HTML elements. <br>
+                                <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+        $("p").prepend("&lt;b&gt;This is kaushal&lt;/b&gt; ");
+        });
+        $("#btn2").click(function(){
+        $("ol").prepend("&lt;li&gt;&lt;b&gt;List item ...&lt;/b&gt;&lt;/li&gt;");
+        });
+    });
+&lt;/script&gt;
+
+    &lt;p&gt;from SpecBits.&lt;/p&gt;
+    &lt;p&gt;from DevelopersArmy.&lt;/p&gt;
+
+    &lt;ol&gt;
+        &lt;li&gt;List item 1&lt;/li&gt;
+        &lt;li&gt;List item 2&lt;/li&gt;
+        &lt;li&gt;List item 3&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;button id="btn1"&gt;Prepend text&lt;/button&gt;
+    &lt;button id="btn2"&gt;Prepend list item&lt;/button&gt;</code></pre>
+    
+            <b>Note :- Add Several New Elements With append() and prepend() </b><br>
+            <p>However, both the append() and prepend() methods can take an infinite number of new elements as parameters. The new elements can be generated with text/HTML (like we have done in the examples above), with jQuery, or with JavaScript code and DOM elements.</p> <br><br>
+
+                        <b>jQuery after() and before() Methods </b> The jQuery after() method inserts content AFTER the selected HTML elements. <br><br>
+                        The jQuery before() method inserts content BEFORE the selected HTML elements. <br>
+                        <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+        $("img").before("&lt;b&gt;Before&lt;/b&gt;");
+        });
+
+        $("#btn2").click(function(){
+        $("img").after("&lt;i&gt;After&lt;/i&gt;");
+        });
+    });
+&lt;/script&gt;
+                        
+    &lt;img src="copy-icon-vector-illustration.jpg" alt="jQuery" width="100" height="140"&gt;&lt;br&gt;&lt;br&gt;
+      
+    &lt;button id="btn1"&gt;Insert before&lt;/button&gt;
+    &lt;button id="btn2"&gt;Insert after&lt;/button&gt;</code></pre> 
+            <b>Note :- Add Several New Elements With after() and before()</b> Also, both the after() and before() methods can take an infinite number of new elements as parameters. <br><br>
+            The new elements can be generated with text/HTML (like we have done in the example above), with jQuery, or with JavaScript code and DOM elements. <br>     
+                        </li> <br>
+
+                        <li><b>jQuery - Remove Elements </b> With jQuery, it is easy to remove existing HTML elements.<br> <br>
+                        
+                            Remove Elements/Content <br> 
+                            <b>remove()</b> - Removes the selected element (and its child elements) <br>
+                            <b>empty()</b> - Removes the child elements from the selected element <br> <br>
+                                <b>jQuery remove() Method : </b> The jQuery remove() method removes the selected element(s) and its child elements.<br>
+                                <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function () {
+        $("button").click(function () {
+        $("p").remove();
+        });
+    });
+&lt;/script&gt;
+
+    &lt;div id="div1" style="height:100px;width:300px;border:1px solid black;background-color:yellow;"&gt;
+
+        This is some text in the div.
+        &lt;p&gt;This is a paragraph in the div.&lt;/p&gt;
+        &lt;p&gt;This is another paragraph in the div.&lt;/p&gt;
+
+    &lt;/div&gt;
+    &lt;br&gt;
+
+    &lt;button&gt;Remove div element&lt;/button&gt;</code></pre> <br>
+
+                                <b>jQuery empty() Method </b>The jQuery empty() method removes the child elements of the selected element(s).<br>
+                                <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function () {
+        $("button").click(function () {
+        $("p").empty();
+        });
+    });
+&lt;/script&gt;
+
+    &lt;div id="div1" style="height:100px;width:300px;border:1px solid black;background-color:yellow;"&gt;
+
+        This is some text in the div.
+        &lt;p&gt;This is a paragraph in the div.&lt;/p&gt;
+        &lt;p&gt;This is another paragraph in the div.&lt;/p&gt;
+
+    &lt;/div&gt;
+    &lt;br&gt;
+
+    &lt;button&gt;Empty the div element&lt;/button&gt;</code></pre>
+    
+            <b>Note :- Filter the Elements to be Removed</b><br>
+            <p>The jQuery remove() method also accepts one parameter, which allows you to filter the elements to be removed. <br><br>
+                The parameter can be any of the jQuery selector syntaxes.</p>
+                        <pre class="language-js"><code>$("p").remove(".test");</code></pre>   
+                        </li> <br>
+
+                        <li><b>jQuery - Get and Set CSS Classes </b> With jQuery, it is easy to manipulate the style of elements. <br> <br>
+                        
+                            jQuery Manipulating CSS <br> 
+                            <b>addClass()</b> - Adds one or more classes to the selected elements <br>
+                            <b>removeClass()</b> - Removes one or more classes from the selected elements <br> 
+                            <b>toggleClass()</b> - Toggles between adding/removing classes from the selected elements <br>
+                            <b>css()</b> - Sets or returns the style attribute <br> <br>
+                                <b>jQuery addClass() Method : </b><br>
+                                <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function () {
+        $("button").click(function () {
+        $("h1, h2, p").addClass("blue");
+        $("div").addClass("important");
+        });
+    });
+&lt;/script&gt;
+&lt;style&gt;
+    .important {
+        font-weight: bold;
+        font-size: xx-large;
+    }
+
+    .blue {
+        color: blue;
+    }
+&lt;/style&gt;
+
+    &lt;h1&gt;Heading 1&lt;/h1&gt;
+    &lt;h2&gt;Heading 2&lt;/h2&gt;
+
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+    &lt;p&gt;This is another paragraph.&lt;/p&gt;
+
+    &lt;div&gt;This is some important text!&lt;/div&gt;&lt;br&gt;
+
+    &lt;button&gt;Add classes to elements&lt;/button&gt;</code></pre>
+                    <b>Note :- </b> You can also specify multiple classes within the addClass() method: <br> <br>
+
+                                <b>jQuery removeClass() Method </b>How to remove a specific class attribute from different elements:<br>
+                                <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function () {
+        $("button").click(function () {
+        $("h1, h2, p").removeClass("blue");
+        });
+    });
+&lt;/script&gt;
+&lt;style&gt;
+    .blue {
+        color: blue;
+    }
+&lt;/style&gt;
+
+    &lt;h1 class="blue"&gt;Heading 1&lt;/h1&gt;
+    &lt;h2 class="blue"&gt;Heading 2&lt;/h2&gt;
+
+    &lt;p class="blue"&gt;This is a paragraph.&lt;/p&gt;
+    &lt;p&gt;This is another paragraph.&lt;/p&gt;
+
+    &lt;button&gt;Remove class from elements&lt;/button&gt;</code></pre> <br>
+
+                                <b>jQuery toggleClass() Method </b>How to use the jQuery toggleClass() method. This method toggles between adding/removing classes from the selected elements:<br>
+                                <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("button").click(function(){
+        $("h1, h2, p").toggleClass("blue");
+        });
+    });
+&lt;/script&gt;
+&lt;style&gt;
+    .blue {
+        color: blue;
+    }
+&lt;/style&gt;
+    
+    &lt;h1&gt;Heading 1&lt;/h1&gt;
+    &lt;h2&gt;Heading 2&lt;/h2&gt;
+    
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+    &lt;p&gt;This is another paragraph.&lt;/p&gt;
+    
+    &lt;button&gt;Toggle class&lt;/button&gt;</code></pre> <br>
+      
+                        </li> <br>
+
+                        <li><b>jQuery - css() Method </b> The css() method sets or returns one or more style properties for the selected elements.<br> <br>
+                        
+                                <b>Syntax : </b><br>
+                                <pre class="language-css"><code>css("propertyname");</code></pre><br>
+
+                                <b>Set a CSS Property </b><br>
+                                <pre class="language-css"><code>css("propertyname","value");</code></pre> <br>
+
+                                <b>Example </b><br>
+                                <pre class="language-js"><code>&lt;script&gt;
+    $(document).ready(function(){
+        $("button").click(function(){
+        $("p").css("background-color", "yellow");
+        });
+    });
+&lt;/script&gt;
+    
+    &lt;h2&gt;This is a heading&lt;/h2&gt;
+    
+    &lt;p style="background-color:#ff0000"&gt;This is a paragraph.&lt;/p&gt;
+    &lt;p style="background-color:#00ff00"&gt;This is a paragraph.&lt;/p&gt;
+    &lt;p style="background-color:#0000ff"&gt;This is a paragraph.&lt;/p&gt;
+    
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+    
+    &lt;button&gt;Set background-color of p&lt;/button&gt;</code></pre> <br>
+    
+                                <b>To set multiple CSS properties, use the following syntax: </b><br>
+                                <pre class="language-css"><code>css({"propertyname":"value","propertyname":"value",...});</code></pre> <br>
+      
+                        </li> <br>
+                    </ul>                     
+                </li> <br>
+
+    </ol>
+
+        <footer>
+            <p style="color: gray;">Copyright &copy2023 specbits.com</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
